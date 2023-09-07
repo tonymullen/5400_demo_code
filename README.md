@@ -1,1 +1,1 @@
-# cs5400_demo_code
+# cs5400 demo code
