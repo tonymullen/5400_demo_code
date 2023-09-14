@@ -37,3 +37,16 @@ sibling(Sib1, Sib2) :-
   parent(Parent, Sib2),
   Sib1 \= Sib2.
 
+grandparent(GrandPar, GrandChild) :-
+  parent(GrandPar, Parent),
+  parent(Parent, GrandChild).
+
+aunt(Aunt, Person) :-
+  sibling(Aunt, Parent),
+  parent(Parent, Person),
+  female(Aunt).
+
+uncle(Uncle, Person) :-
+  sibling(Uncle, Parent),
+  parent(Parent, Person),
+  male(Uncle).
