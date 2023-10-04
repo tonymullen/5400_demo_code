@@ -20,8 +20,12 @@ edge(f,g).
 % X = [a, c, d, e] ;
 % false.
 
-connected(X, Y):
+connected(X, Y, [X, Y]):-
     edge(X, Y).
-connected(X, Y) :- 
+connected(X, Y, [X|Tail]) :- 
     edge(X, Z), 
-    connected(Z, Y).
+    connected(Z, Y, Tail).
+
+
+
+
