@@ -29,4 +29,30 @@ bird(chicken).
 % not need to be able to take an instantiated second argument and
 % correctly instantiate the first argument.
 
+animal_counts([], counts(dogs:0, birds:0)).
 
+animal_counts([Animal|Tail], counts(dogs: DogCount, Birds)) :-
+    dog(Animal),
+    animal_counts(Tail, counts(dogs: OldDogCount, Birds)),
+    DogCount is OldDogCount + 1.
+
+animal_counts([Animal|Tail], counts(Dogs, birds: BirdCount)) :-
+    bird(Animal),
+    animal_counts(Tail, counts(Dogs, birds: OldBirdCount)),
+    BirdCount is OldBirdCount + 1.
+
+
+animal_counts_tr(Animals, Counts) :-
+    animal_counts_tr(Animals, Counts, counts(dogs:0, birds:0)).
+
+animal_counts_tr([], Counts, Counts).
+
+animal_counts_tr([Animal|Tail], Counts, counts(dogs: DogCounts, Birds)) :-
+    dog(Animal),
+    NewDogCounts is DogCounts + 1,
+    animal_counts_tr(Tail, Counts, counts(dogs: NewDogCounts, Birds)).
+
+animal_counts_tr([Animal|Tail], Counts, counts(Dogs, birds: BirdCounts)) :-
+    bird(Animal),
+    NewBirdCounts is BirdCounts + 1,
+    animal_counts_tr(Tail, Counts, counts(Dogs, birds: NewBirdCounts)).
