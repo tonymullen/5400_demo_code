@@ -25,16 +25,28 @@ good_mileage(car1).
 good_mileage(car3).
 good_mileage(car5).
 
-meets_criteria(X) :-
-    nice_color(X),
-    fast(X),
-    smells_good(X),
-    unique_style(X),
-    cheap(X).
+% meets_criteria(X) :-
+%     nice_color(X),
+%     fast(X),
+%     smells_good(X),
+%     unique_style(X),
+%     cheap(X).
+
+% meets_criteria(X) :-
+%     nice_color(X),
+%     fast(X),
+%     smells_good(X),
+%     unique_style(X),
+%     good_mileage(X).
 
 meets_criteria(X) :-
     nice_color(X),
     fast(X),
     smells_good(X),
     unique_style(X),
-    good_mileage(X).
+    (
+        good_mileage(X)
+    ;
+        cheap(X)
+    )
+    .

@@ -20,6 +20,7 @@ client('W. Metesk').
 
 book_overdue('C. Watzer', book100089).
 book_overdue('A. Jones', book29907).
+book_overdue('A. Jones', book29908).
 
 test1 :- facility('W. Metesk', enquiries).
 test2 :- facility('W. Metesk', borrowing).

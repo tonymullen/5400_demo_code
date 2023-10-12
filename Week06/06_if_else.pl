@@ -11,7 +11,8 @@ status(Person, Status) :-
     candidates(Candidates),
     member(Person, Candidates),!,
     (
-        qualified(Person) ->
+        qualified(Person)
+    ->
         Status = qualified_candidate
     ;
         Status = unqualified_candidate
