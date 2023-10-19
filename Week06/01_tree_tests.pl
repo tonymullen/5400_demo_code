@@ -5,7 +5,8 @@ test :- test1,
         test2,
         test4,
         test5,
-        \+test3. %negation as failure. succeeds if test3 fails!
+        \+test3,
+        !. %negation as failure. succeeds if test3 fails!
 
 test1 :- isotree(tree(a, void, void), tree(a, void, void)).
 
